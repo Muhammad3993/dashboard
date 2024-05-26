@@ -142,7 +142,8 @@
         position: relative;
     }
 
-    .overlay_hidden{
+    .sidebar_free_fill,
+    .sidebar_free{
         display: none;
     }
 
