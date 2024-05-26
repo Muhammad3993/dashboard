@@ -58,7 +58,7 @@
     gap: 20px;
     position: relative;
     padding: 0 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .sidebar_link:hover .sidebar_txt,
@@ -71,12 +71,6 @@
     transition: .3s;
     margin-left: 1px;
 }
-
-/* .sidebar_txt_none{
-    position: absolute;
-    left: 100%;
-    visibility: hidden;
-} */
 
 .sidebar_icon{
     min-width: 60px;
@@ -139,8 +133,24 @@
 
 @media screen and (max-width: 514px) {
     .sidebar{
+        height: 100vh;
         position: relative;
         top: 0;
+        justify-content: start;
+        gap: 20px;
+        /* overflow: scroll; */
+    }
+
+    .sidebar_links{
+        padding-top: 230px;
+        overflow-y: scroll;
+        scrollbar-color: transparent transparent;
+        behavior: smooth;
+    }
+
+    .sidebar_links::-webkit-scrollbar{
+        height: 0;
+        background: transparent;
     }
 
     .sidebar_free_fill,
@@ -157,6 +167,7 @@
         top: 0;
         right: 0;
         z-index: 1;
+        transition: .3s;
     }
 
     .overlay_side{
