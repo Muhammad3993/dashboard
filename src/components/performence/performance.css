@@ -1,0 +1,248 @@
+.preformance{
+    width: 56%;
+}
+
+.preformance_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--black-bg1);
+}
+
+.body{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black-bg2);
+}
+
+.preformance_chart {
+    width: 100%;
+    height: 294px;
+    border: 1px solid red;
+    margin-top: 25px;
+}
+
+.preformance_descriptions{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    gap: 20px;
+    overflow: scroll;
+    user-select: none;
+    scrollbar-color: transparent transparent;
+    behavior: smooth;
+}
+
+.preformance_descriptions::-webkit-scrollbar{
+    height: 0;
+    background: transparent;
+}
+
+.preformance_box{
+    width: 25%;
+    min-width: 140px;
+    height: 200px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow1);
+    padding: 18px;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.preformance_box_icon{
+    width: 50px;
+    height: 50px;
+    background: var(--blue1);
+    color: var(--blue2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    position: relative;
+}
+
+.preformance_box_title{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black-bg2);
+}
+
+.preformance_box_count{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--black-bg1);
+}
+
+.preformance_box_percent{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black-bg2);
+}
+
+.orange{
+    background: var(--orange);
+    color: var(--orange1);
+}
+
+.l-icon{
+    position: absolute;
+    font-size: 13px;
+    bottom: 11px;
+    right: 13px;
+    font-weight: 900;
+    background: inherit;
+}
+
+.blue{
+    background: var(--blue3);
+    color: var(--blue4);
+}
+
+.green {
+    background: var(--green);
+    color: var(--green1);
+}
+
+.daily .preformance_header{
+    margin-top: 30px;
+}
+
+.preformance_header_btn{
+    width: 131px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black-bg2);
+}
+
+.daily_boxes{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+    overflow: scroll;
+    scrollbar-color: transparent transparent;
+    behavior: smooth;
+}
+
+.daily_boxes::-webkit-scrollbar{
+    height: 0;
+    background: transparent;
+}
+
+.daily_box{
+    width: 50%;
+    min-width: 310px;
+    height: 140px;
+    background: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px;
+    border-radius: 10px;
+    flex: 1;
+    user-select: none;
+}
+
+.daily_box_left_count{
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black-bg1);
+}
+
+.daily_box_left_txt{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black-bg2);
+    margin-top: 10px;
+}
+
+.daily_box_center{
+    width: 58px;
+    height: 58px;
+    background: var(--blue);
+    border-radius: 50%;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.daily_box_center_orange{
+    background: var(--orange1);
+}
+
+.daily_box_center::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--white-bg);
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    clip: rect(0px, 100px, 28px, 28px);
+    z-index: -1;
+}
+
+.daily_box_center_text{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--white-bg1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--blue);
+    box-shadow: 0px 30px 50px 0px #C7C2E3AB;
+}
+
+.daily_box_center_orange .daily_box_center_text{
+    background: var(--orange);
+    color: var(--orange1);
+    box-shadow: 0px 30px 50px 0px #F2DDD8;
+}
+
+@media screen and (max-width: 900px) {
+    .preformance_box{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .preformance{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 453px) {
+    .preformance{
+        width: 100%;
+    }
+
+    .title{
+        font-size: 16px;
+    }
+}
