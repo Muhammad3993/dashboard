@@ -10,6 +10,7 @@
 .navbar_menu{
     font-size: 20px;
     cursor: pointer;
+    display: none;
 }
 
 .navbar_input{
@@ -84,6 +85,10 @@
 }
 
 @media screen and (max-width: 514px){
+    .navbar_menu{
+        display: flex;
+    }
+    
     .navbar_input{
         padding: 0 1px;
     }

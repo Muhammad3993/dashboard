@@ -1,3 +1,61 @@
+import React from 'react';
+// chart
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+const data = [
+  {
+    name: 'Jan',
+    pv: 14000,
+  },
+  {
+    name: 'Feb',
+    pv: 11300,
+  },
+  {
+    name: 'Mar',
+    pv: 17800,
+  },
+  {
+    name: 'Apr',
+    pv: 11900,
+  },
+  {
+    name: 'May',
+    pv: 13000,
+  },
+  {
+    name: 'Jun',
+    pv: 8000,
+  },
+  {
+    name: 'Jul',
+    pv: 8000,
+  },  
+  {
+    name: 'Aug',
+    pv: 13500,
+  },  
+  {
+    name: 'Sep',
+    pv: 9000,
+  },  
+  {
+    name: 'Oct',
+    pv: 18000,
+  },  
+  {
+    name: 'Nov',
+    pv: 12500,
+  },  
+  {
+    name: 'Dec',
+    pv: 15300,
+  }
+];
+
+
+
+
 // icons
 import { TbSquareMinus, TbUsers } from "react-icons/tb";
 // style
@@ -9,7 +67,7 @@ import PerformanceBottom from "./PerformanceBottom";
 import { useEffect, useRef, useState } from "react";
 
 const Performence = () => {
-      // For scroll
+  // For scroll
   const ref = useRef(null)
   const [startX, setStartX] = useState(0)
   const [startScrollLeft, setStartScrollLeft] = useState(0)
@@ -53,15 +111,65 @@ const Performence = () => {
     if (scrollLeft === 0){}
   }
   // For scroll
+
+  // For chart
+  const [opacity, setOpacity] = useState({ pv: 1 });
+  const [activeTick, setActiveTick] = useState('');
+
+  const handleMouseEnter = (dataKey) => setOpacity((op) => ({ ...op, [dataKey]: 0.5 }));
+  const handleMouseLeave = (dataKey) => setOpacity((op) => ({ ...op, [dataKey]: 1 }));
+
+  
   return (
     <div className='preformance'>
         <div className="preformance_header">
             <p className="title">Performance</p>
             <p className="body">Year</p>
         </div>
-        <div className="preformance_chart"></div>
-        <div className="preformance_descriptions"  onScroll={handleScroll} 
-                    ref={ref}>
+        <div className="preformance_chart">
+          <div className="preformance_chart_text">
+            <div className='preformance_chart_dot'/>
+            <p>Current Period</p>
+          </div>
+          <div style={{ width: '100%' }}>
+            <ResponsiveContainer width="100%" height={220}>
+              <LineChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                  top: 15,
+                  right: 10,
+                  left: 10,
+                }}
+              >
+                <XAxis 
+                  dataKey="name" 
+                  tick={(props) => (
+                    <CustomXAxisTick 
+                      {...props} 
+                      active={props.payload.value === activeTick} 
+                    />
+                  )} 
+                />
+                <Tooltip 
+                  content={(props) => (
+                    <CustomTooltip 
+                      {...props} 
+                      onSetActiveTick={setActiveTick} 
+                    />
+                  )} 
+                />
+                <Legend onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} />
+                <Line type="natural" dataKey="pv" strokeWidth={5} strokeOpacity={opacity.pv} dot={false}  stroke="#563BFF" activeDot={{ r: 8 }}  />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="preformance_descriptions" 
+          onScroll={handleScroll} 
+          ref={ref}
+          >
             <div className="preformance_box">
                 <div className="preformance_box_icon">
                     <span><TbUsers /></span>
@@ -102,3 +210,33 @@ const Performence = () => {
 }
 
 export default Performence;
+
+const CustomTooltip = ({ active, payload, label, onSetActiveTick }) => {
+  if (active && payload && payload.length) {
+    onSetActiveTick(label); // Etkin etiketi güncelle
+    return (
+      <div className="custom-tooltip">
+        <p className="desc">Users</p>
+        <p className="label">{payload[0].value / 1000}k</p>
+      </div>
+    );
+  }
+
+  onSetActiveTick(''); // Tooltip aktif değilken aktif etiketi temizle
+  return null;
+};
+
+
+const CustomXAxisTick = ({ x, y, payload, active }) => {
+  return (
+    <text
+      x={x}
+      y={y}
+      fill={active ? '#4E4E4E' : '#A3ABBD'}
+      textAnchor="middle"
+      className="recharts-text recharts-cartesian-axis-tick-value"
+    >
+      <tspan x={x} dy="0.71em">{payload.value}</tspan>
+    </text>
+  );
+};
