@@ -194,6 +194,7 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--black-bg2);
+    cursor: pointer;
 }
 
 .daily_boxes{

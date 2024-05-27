@@ -73,7 +73,7 @@ const Sidebar = ({sidebar, setSidebar, sidebarForMedia, setSidebarForMedia}) => 
             </div>
         </div>
         <div className={!sidebar ? "sidebar_free sidebar_free_fill" : "sidebar_free"}></div>
-        <div className={!sidebar ? `overlay` : "overlay_side"} onClick={() => setSidebarForMedia(false)}></div>
+        <div className={!sidebar ? `overlay ${sidebarForMedia ? "none" : ""}` : "overlay_side"} onClick={() => setSidebarForMedia(false)}></div>
     </div>
   )
 }

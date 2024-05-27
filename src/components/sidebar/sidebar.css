@@ -139,9 +139,7 @@
         height: 100vh;
         position: relative;
         top: 0;
-        /* justify-content: start; */
         gap: 20px;
-        /* overflow: scroll; */
     }
 
     .sidebar_links{
@@ -163,9 +161,9 @@
 
     .overlay{
         width: calc(100% - 250px);
-        height: 948px;
+        height: 100vh;
         display: flex;
-        background: rgba(155, 155, 155, .5);
+        /* background: rgba(155, 155, 155, .5); */
         position: absolute;
         top: 0;
         right: 0;
@@ -173,11 +171,11 @@
         transition: .3s;
     }
 
-    .overlay_side{
+    .overlay_side{  
         width: calc(100% - 102px);
-        height: 948px;
+        height: 100vh;
         display: flex;
-        background: rgba(155, 155, 155, .5);
+        /* background: rgba(155, 155, 155, .5); */
         position: absolute;
         top: 0;
         right: 0;
