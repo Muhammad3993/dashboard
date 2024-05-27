@@ -61,6 +61,7 @@
     gap: 20px;
     position: relative;
     padding: 0 20px;
+    transition: .3s;
     /* overflow: hidden; */
 }
 
@@ -73,6 +74,7 @@
     font-weight: 700;
     transition: .3s;
     margin-left: 1px;
+    transition: .3s;
 }
 
 .sidebar_icon{
@@ -82,6 +84,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 15px;
+    transition: .3s;
 }
 
 .active .sidebar_icon {
@@ -143,7 +146,6 @@
     }
 
     .sidebar_links{
-        padding-top: 200px;
         overflow-y: scroll;                                                                                         
         scrollbar-color: transparent transparent;
         behavior: smooth;
@@ -194,5 +196,17 @@
 
     .sidebarForMedia{
         left: 0;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .sidebar_links{
+        padding-top: 40px;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .sidebar_links{
+        padding-top: 210px;
     }
 }
