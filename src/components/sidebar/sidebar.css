@@ -16,6 +16,10 @@
     overflow: hidden;
 }
 
+.side_bar{
+    border-radius: inherit;
+}
+
 .sidebar_free{
     width: 102px;
     height: 948px;

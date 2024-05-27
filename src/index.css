@@ -96,5 +96,6 @@ input{
 @media screen and (max-width: 514px) {
   .routes {
     width: 100%;
+    border-radius: inherit;
   }
 }

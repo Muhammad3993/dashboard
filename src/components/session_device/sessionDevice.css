@@ -5,8 +5,56 @@
 .sessionDevice_chart {
     width: 100%;
     height: 294px;
-    border: 1px solid green;
     margin-top: 25px;
+    position: relative;
+    background: var(--white);
+    border-radius: 10px;
+    display: flex;
+    padding: 18px;
+}
+
+.sessionDevice_chart_barchart{
+    position: relative;
+    bottom: 20px;
+}
+
+.sessionDevice_chart .recharts-radial-bar-label,
+.sessionDevice_chart .recharts-legend-wrapper{
+    display: none;
+}
+
+.sessionDevice_chart_data{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+}
+
+.sessionDevice_chart_data_box_name{
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--black-bg2);
+}
+
+.sessionDevice_chart_data_box_flex{
+    display: flex;
+    align-items: end;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.sessionDevice_chart_data_box_num{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--black-bg1);
+}
+
+.sessionDevice_chart_data_box_percent{
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black-bg2);
 }
 
 .sessionDevice_desc{
@@ -54,21 +102,36 @@
     position: relative;
 }
 
+@keyframes fillAnimation {
+    0% { width: 0%; }
+    100% { width: 65%; }
+}
+
+@keyframes fillAnimation1 {
+    0% { width: 0%; }
+    100% { width: 75%; }
+}
+
+@keyframes fillAnimation2 {
+    0% { width: 0%; }
+    100% { width: 50%; }
+}
+
 .sessionDevice_desc_direct_body_fill{
-    width: 65%;
     height: 100%;
     background: var(--blue);
     border-radius: inherit;
+    animation: fillAnimation 1s ease forwards;
 }
 
 .fill_orange{
-    width: 75%;
     background: var(--orange1);
+    animation: fillAnimation1 1s ease forwards;
 }
 
 .fill_green{
-    width: 50%;
     background: var(--green1);
+    animation: fillAnimation2 1s ease forwards;
 }
 
 .sessionDevice_bottom{
@@ -100,8 +163,61 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1200px) {
+    .sessionDevice_chart{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sessionDevice_chart_data{
+        width: 100%;
+        flex-direction: row;
+    }
+}
+
 @media screen and (max-width: 840px) {
     .sessionDevice{
         width: 100%;
+    }
+
+    .sessionDevice_chart{
+        width: 100%;
+        flex-direction: row;
+        height: 294px;
+        justify-content: space-between;
+    }
+
+    .sessionDevice_chart_data{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 614px) {
+    .sessionDevice_chart{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sessionDevice_chart_data{
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .sessionDevice_chart_barchart{
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .sessionDevice_chart_data{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sessionDevice_chart_barchart{
+        bottom: 0;
+        left: -20px;
+        transform: scale(.7);
     }
 }
